@@ -4,62 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Quiz</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Document</title>
 </head>
 <body>
-  <header>
-    <h1>Quiz</h1>
-  </header>
 
-  <main>
+ <div id="welcome-screen">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam harum eos obcaecati mollitia dolor architecto facere necessitatibus perferendis ullam nisi nostrum reiciendis amet corporis saepe laudantium quos, eius voluptas placeat!</p>
+  <button id="start-button">Start</button>
+ </div>
 
-    <section>
-      <div>
-        <h2>Countdown:</h2>
-      </div><br>
-      <div>
-        <h2>Score:</h2>
-      </div>
-    </section>
+ <div id="question-screen" class="hide">
+  <h1>Question 1</h1>
+  <button id="next-button">Next Question</button>
+ </div>
 
-    <h2>Please answer the questions below</h2>
-
-    <section Class="question" id="question1">
-      <h3>Question 1: What is my favorite color?</h3><br>
-
-      <input type="radio" id="q-one" name="fav_color" value="blue">
-      <label for="blue">Blue</label><br>
-
-      <input type="radio" id="q-two" name="fav_color" value="green">
-      <label for="green">Green</label><br>
-
-      <input type="radio" id="q-three" name="fav_color" value="purple">
-      <label for="purple">Purple</label><br>
-
-      <input type="radio" id="q-four" name="fav_color" value="yellow">
-      <label for="Yellow">Yellow</label><br><br>
-      <button type="button">Submit</button>
-    </section>
-
-    <section class="question" id="question2">
-      <h3>Question 2: What is my favorite food?</h3><br>
-
-      <input type="radio" id="q-one" name="fav_food" value="pizza">
-      <label for="pizza">Pizza</label><br>
-
-      <input type="radio" id="q-two" name="fav_food" value="spaghetti">
-      <label for="spaghetti">Spaghetti</label><br>
-
-      <input type="radio" id="q-three" name="fav_food" value="caesar-salad">
-      <label for="caesar-salad">Caesar Salad</label><br>
-
-      <input type="radio" id="q-four" name="fav_food" value="wine">
-      <label for="wine">Wine</label><br><br>
-      <button type="button">Submit</button>
-    </section>
-
-  </main> 
+ <div id="gameover-screen" class="hide">
+    <h1>Game Over</h1>
+ </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
