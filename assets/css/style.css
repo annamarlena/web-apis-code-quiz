@@ -12,10 +12,9 @@ main {
   background-color: rgb(240, 240, 96);
   padding: 50px;
   margin: 10px;
-  
 }
 
-div {
+section {
   background-color: white;
   width: 500px;
   padding: 50px;

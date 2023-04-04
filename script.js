@@ -1,5 +1,5 @@
 // Gary's Tips:
-// Need global vars
+// Need global variables
 // Need functions
 // Need a way to cycle through all the answers and store them
 // Start off by making 2 generic questions and run tests till working right
@@ -9,8 +9,16 @@
 // Preferable not to have an event listener for each of the buttons
   // Have a global event listener for any click on the page
 
+  var timer
+  var score = 0;
+  
 // User arrives at web page
 // Click the button
+
+function start() {
+
+  
+}
   // First question appears
   // Timer starts
 
