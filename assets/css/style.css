@@ -1,3 +1,52 @@
 body {
   padding-left: 30px;
+  background-color: black;
 }
+
+header {
+  color: white;
+  margin: 20px;
+}
+
+main {
+  background-color: rgb(240, 240, 96);
+  padding: 50px;
+  margin: 10px;
+  
+}
+
+div {
+  background-color: white;
+  width: 500px;
+  padding: 50px;
+  margin: 10px;
+}
+
+.question {
+
+}
+
+#question1 {
+
+}
+
+#question2 {
+
+}
+
+#q-one {
+
+}
+
+#q-two {
+
+}
+
+#q-three {
+
+}
+
+#q-four {
+  
+}
+
