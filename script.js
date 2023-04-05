@@ -18,7 +18,10 @@ var questionScrn = document.querySelector("#question-screen");
 var welcomeScrn = document.querySelector("#welcome-screen");
 var gameoverScrn = document.querySelector("#gameover-screen");
 var nextBtn = document.querySelector("#next-button");
+var questionTag = document.querySelector("#question");
+var answersTag = document.querySelector("#answers");
 var playing = true;
+var currQuestionIdx = 0;
 
 // array of question objects
 var questions = [
@@ -61,7 +64,35 @@ function startQuiz() {
   displayNextQuestion()
 }
 
+/*
+{
+    question: "Who is the best TA",
+    answers: ['Katy', "Joe"],
+    correct: 'Katy'
+  },
+*/
+
 function displayNextQuestion() {
+  var currQuestionObj = questions[currQuestionIdx];
+  var questionToDisplay = currQuestionObj.question;
+  var answers = currQuestionObj.answers;
+
+  questionTag.textContent = questionToDisplay;
+
+  for(var i = 0; i<answers.length; i++ ){
+    var currAnswer = answers[i];
+    var liTag = document.createElement("li");
+    liTag.textContent = currAnswer;
+
+    if( currAnswer === currQuestionObj.correct ){
+      liTag.setAttribute("data-correct", "yes");
+    }
+
+    answersTag.appendChild(liTag);
+  }
+
+
+
   // grab current question from questions array based on current index
   // set the text content of the question title element to be the current question 
   // for the length of the answers array in the current question,
@@ -96,6 +127,20 @@ function gameOver() {
     //either way, empty the ul with element.innerHTML = ''
     // if () displayNextQuestion()
 
+// Listen for click inside the answer ul tag
+answersTag.addEventListener("click", function(event){
+  console.log("click");
+  if( event.target.matches("li") ){
+    if( event.target.getAttribute("data-correct") !== undefined ){
+      console.log("correct!")
+      // add the score
+    } else {
+      // subtract some time
+    }
+    currQuestionIdx++;
+    displayNextQuestion();
+  }
+})
 
 // Listen for button clicks
 startBtn.addEventListener("click", startQuiz)
