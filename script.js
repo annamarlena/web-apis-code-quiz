@@ -1,12 +1,7 @@
-// Gary's Tips:
-// Need global variables
-// Need functions
+
 // Need a way to cycle through all the answers and store them
 // Start off by making 2 generic questions and run tests till working right
-// Test in short, controlled areas, can always make everything bigger later on
-// Don't make timer really long
-// Test functions in isolation: write the function, call the function to test it
-// Preferable not to have an event listener for each of the buttons
+
   // Have a global event listener for any click on the page
 
 // Set the global variables
@@ -76,7 +71,7 @@ function displayNextQuestion() {
   var currQuestionObj = questions[currQuestionIdx];
   var questionToDisplay = currQuestionObj.question;
   var answers = currQuestionObj.answers;
-
+  answersTag.innerHTML = "";
   questionTag.textContent = questionToDisplay;
 
   for(var i = 0; i<answers.length; i++ ){
@@ -86,6 +81,8 @@ function displayNextQuestion() {
 
     if( currAnswer === currQuestionObj.correct ){
       liTag.setAttribute("data-correct", "yes");
+    } else {
+      liTag.setAttribute("data-correct", "no");
     }
 
     answersTag.appendChild(liTag);
@@ -104,10 +101,10 @@ function displayNextQuestion() {
 }
 
 // Create a function that runs when a user clicks the next button
-function nextScreen() {
-  // Hide the current question and go to the next screen
+// function nextScreen() {
+//   // Hide the current question and go to the next screen
   
-}
+// }
 
 
 function gameOver() {
@@ -131,11 +128,13 @@ function gameOver() {
 answersTag.addEventListener("click", function(event){
   console.log("click");
   if( event.target.matches("li") ){
-    if( event.target.getAttribute("data-correct") !== undefined ){
+    if( event.target.getAttribute("data-correct") === "yes" ){
       console.log("correct!")
       // add the score
+      score++
     } else {
       // subtract some time
+      secondsLeft--
     }
     currQuestionIdx++;
     displayNextQuestion();
@@ -144,7 +143,7 @@ answersTag.addEventListener("click", function(event){
 
 // Listen for button clicks
 startBtn.addEventListener("click", startQuiz)
-nextBtn.addEventListener("click", nextScreen)
+//nextBtn.addEventListener("click", nextScreen)
 
 
 console.log("hello")
