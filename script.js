@@ -1,13 +1,7 @@
-
-// Need a way to cycle through all the answers and store them
-// Start off by making 2 generic questions and run tests till working right
-
-  // Have a global event listener for any click on the page
-
 // Set the global variables
 var timer = document.querySelector(".time"); // h1 tag
-var secondsLeft = 5;
-var score = 0;
+var secondsLeft = 15;
+var score = secondsLeft;
 var startBtn = document.querySelector("#start-button");
 var questionScrn = document.querySelector("#question-screen");
 var welcomeScrn = document.querySelector("#welcome-screen");
@@ -21,20 +15,35 @@ var currQuestionIdx = 0;
 // array of question objects
 var questions = [
   {
-    question: "Who is the best TA",
-    answers: ['Katy', "Joe"],
-    correct: 'Katy'
+    question: "Which of the following is not a semantic HTML tag:",
+    answers: ['nav', 'footer', 'div', 'main'],
+    correct: 'div'
   },
   {
-    question: "Who is the best dog",
-    answers: ['Dizzy', "Buddy"],
-    correct: 'Dizzy'
+    question: "When styling with flexbox, most of the flexbox properties get placed in the:",
+    answers: ['header', 'footer', 'body', 'parent'],
+    correct: 'parent'
   },
   {
-    question: "Who is the best instructor",
-    answers: ['Gary', "Joe", 'Not Gary', "Monkey"],
-    correct: 'Monkey'
-  }
+    question: "What is the DOM?",
+    answers: ['digital office media', 'document object model', 'digital object modification', "your buddy Dominic's nickname"],
+    correct: 'document object model'
+  },
+  {
+    question: "Which of the following is not a primitive date type in JavaScript:",
+    answers: ['object', 'boolean', 'string', 'number'],
+    correct: 'object'
+  },
+  {
+    question: "When styling with flexbox, most of the flexbox properties get placed in the:",
+    answers: ['header', 'footer', 'body', 'parent'],
+    correct: 'parent'
+  },
+  {
+    question: "Gary's tips for success include all of these except:",
+    answers: ['keep everything lowercase', 'use your tutor', 'stay on camera', 'send Gary peanut butter'],
+    correct: 'send Gary peanut butter'
+  },
 ]
 
 // Create a timer function
@@ -45,6 +54,7 @@ function setTime() {
       timer.textContent = secondsLeft + " seconds left";
     } else {
       clearInterval(timerInterval)
+      playing = false;
       gameOver()
     }
   }, 1000);
@@ -53,19 +63,11 @@ function setTime() {
 // Create a function that runs when a user clicks the start button
 function startQuiz() {
   // Hide the welcome screen and show the first question
+  setTime()
   questionScrn.classList.remove("hide");
   welcomeScrn.classList.add("hide");
-  setTime()
   displayNextQuestion()
 }
-
-/*
-{
-    question: "Who is the best TA",
-    answers: ['Katy', "Joe"],
-    correct: 'Katy'
-  },
-*/
 
 function displayNextQuestion() {
   var currQuestionObj = questions[currQuestionIdx];
@@ -84,14 +86,8 @@ function displayNextQuestion() {
     } else {
       liTag.setAttribute("data-correct", "no");
     }
-
     answersTag.appendChild(liTag);
   }
-
-
-
-  // grab current question from questions array based on current index
-  // set the text content of the question title element to be the current question 
   // for the length of the answers array in the current question,
     // create a button element for each answer and append to the ul
     // text content is the answer
@@ -100,29 +96,13 @@ function displayNextQuestion() {
   // call check answer with the selected answer as the argument
 }
 
-// Create a function that runs when a user clicks the next button
-// function nextScreen() {
-//   // Hide the current question and go to the next screen
-  
-// }
 
 
 function gameOver() {
   questionScrn.classList.add("hide");
   gameoverScrn.classList.remove("hide");
+  document.getElementById("final-score").textContent = "Final Score: " + secondsLeft;
 }
-
-
-// When an answer is clicked
-  // Determine if it's right or wrong
-// function checkAnswer(selected) 
-    // if (selected === currentQuestion.correct) add points
-
-
-    // If it's wrong subtract time
-    // increase current index
-    //either way, empty the ul with element.innerHTML = ''
-    // if () displayNextQuestion()
 
 // Listen for click inside the answer ul tag
 answersTag.addEventListener("click", function(event){
@@ -130,20 +110,21 @@ answersTag.addEventListener("click", function(event){
   if( event.target.matches("li") ){
     if( event.target.getAttribute("data-correct") === "yes" ){
       console.log("correct!")
-      // add the score
-      score++
     } else {
       // subtract some time
       secondsLeft--
+      timer.textContent = secondsLeft + " seconds left";
+      console.log("WRONG!")
     }
     currQuestionIdx++;
-    displayNextQuestion();
+    if( currQuestionIdx < questions.length ) {
+      displayNextQuestion();
+    } else {
+      playing = false;
+      gameOver()
+    }
   }
 })
 
 // Listen for button clicks
 startBtn.addEventListener("click", startQuiz)
-//nextBtn.addEventListener("click", nextScreen)
-
-
-console.log("hello")

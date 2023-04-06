@@ -3,25 +3,35 @@
 }
 
 /* body {
-  padding-left: 30px;
-  background-color: black;
-}
+  background-color: gray;
+} */
 
 header {
+  position: fixed;
+  width: 100%;
+  margin-top: 0%;
+  margin-left: auto;
+  background-color: black;
   color: white;
-  margin: 20px;
+  height: 80px;
 }
 
 main {
-  background-color: rgb(240, 240, 96);
   padding: 50px;
   margin: 10px;
 }
 
-section {
+div {
   background-color: white;
   width: 500px;
   padding: 50px;
   margin: 10px;
+} 
+
+/* li {
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 25%;
 } */
 

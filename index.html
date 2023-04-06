@@ -7,27 +7,26 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Quiz</title>
 </head>
-<body>
-
+<header>
   <h1 class="time" style="text-align:center"></h1>
-  <h2 class="current-score" style="text-align:center"></h2>
-
- <div id="welcome-screen">
-  <p>Take the Quiz</p>
-  <button id="start-button">Start</button>
- </div>
-
- <div id="question-screen" class="hide">
-  <h1 id="question"></h1>
-  <ul id="answers">
-
-  </ul>
- </div><br>
-
- <div id="gameover-screen" class="hide">
-    <h1>Game Over</h1>
- </div>
-  
+</header>
+<body> 
+  <main> 
+    <div id="welcome-screen">
+      <p>Take the Quiz</p>
+      <button id="start-button">Start</button>
+    </div>
+    
+    <div id="question-screen" class="hide">
+      <h1 id="question"></h1>
+      <ul id="answers"></ul>
+    </div><br>
+    
+    <div id="gameover-screen" class="hide">
+        <h1 id="final-score">Final Score:</h1>
+    </div>
+  </main>
+ 
   <script src="script.js"></script>
 </body>
 </html>
