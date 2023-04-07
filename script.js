@@ -122,23 +122,18 @@ answersTag.addEventListener("click", function(event){
   }
 })
 
-
 // Listen for start button click
 startBtn.addEventListener("click", startQuiz)
 
 // Listen for save button click to add local storage for initials and high score
 saveBtn.addEventListener("click", function(event) {
   event.preventDefault();
-
   score = secondsLeft
-  console.log(initials.value)
   if(storedScore < score) {
     storedScore = score;
     localStorage.setItem("storedScore", storedScore);
     localStorage.setItem("initials", initials.value);
   }
-  console.log(storedScore)
-  console.log(initials.value)
   document.getElementById("high-score").textContent = "High Score: " + storedScore;
   document.getElementById("hs-initials").textContent = "Initials: " + initials.value;
 })
