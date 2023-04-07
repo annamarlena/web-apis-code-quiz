@@ -1,7 +1,7 @@
 // Set the global variables
 var timer = document.querySelector(".time"); // h1 tag
 var secondsLeft = 15;
-var score = secondsLeft;
+var score
 var startBtn = document.querySelector("#start-button");
 var questionScrn = document.querySelector("#question-screen");
 var welcomeScrn = document.querySelector("#welcome-screen");
@@ -12,6 +12,8 @@ var answersTag = document.querySelector("#answers");
 var playing = true;
 var currQuestionIdx = 0;
 var saveBtn = document.querySelector("#save-button");
+var storedScore = localStorage.getItem("storedScore");
+var initials =  document.querySelector(".form-input").value;
 
 // Array of question objects
 var questions = [
@@ -98,6 +100,7 @@ function gameOver() {
   questionScrn.classList.add("hide");
   gameoverScrn.classList.remove("hide");
   document.getElementById("final-score").textContent = "Final Score: " + secondsLeft;
+  score = secondsLeft;
 }
 
 // Listen for click inside the answer ul tag
@@ -119,8 +122,22 @@ answersTag.addEventListener("click", function(event){
   }
 })
 
+// Add local storage for initials and final score
+
+
 // Listen for start button click
 startBtn.addEventListener("click", startQuiz)
 
 // Listen for save button click
-saveBtn.addEventListener("click", )
+saveBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  // look in local storage and see if there;s a high score there 
+  // is high score greater than the new one 
+  if(storedScore < score) {
+    storedScore = score;
+    localStorage.setItem("storedScore", storedScore);
+  }
+  console.log(storedScore)
+  localStorage.setItem("initials", initials);
+  console.log(initials)
+})
