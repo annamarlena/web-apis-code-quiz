@@ -14,16 +14,24 @@
   <main> 
     <div id="welcome-screen">
       <p>Take the Quiz</p>
+      <p>(You can click on the answers even though they don't look clickable.)</p>
       <button id="start-button">Start</button>
     </div>
     
     <div id="question-screen" class="hide">
       <h1 id="question"></h1>
+      <p>(You can click on the answers even though they don't look clickable.)</p>
       <ul id="answers"></ul>
     </div><br>
     
     <div id="gameover-screen" class="hide">
-        <h1 id="final-score">Final Score:</h1>
+        <h1 id="final-score"></h1>
+        <form>
+          <div>
+            <label for="initials">Initials</label>
+            <input type="text" class="form-input" name="initials" placeholder="Enter your initials" />
+          </div>
+        </form>
     </div>
   </main>
  

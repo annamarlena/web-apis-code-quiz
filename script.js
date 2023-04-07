@@ -11,6 +11,7 @@ var questionTag = document.querySelector("#question");
 var answersTag = document.querySelector("#answers");
 var playing = true;
 var currQuestionIdx = 0;
+// var firstNameEl = $('input[name="first-name"]');
 
 // array of question objects
 var questions = [
