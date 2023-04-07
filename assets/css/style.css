@@ -2,15 +2,15 @@
   display: none !important;
 }
 
-/* body {
-  background-color: gray;
-} */
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 header {
   position: fixed;
   width: 100%;
   margin-top: 0%;
-  margin-left: auto;
+  margin-left: 0%;
   background-color: black;
   color: white;
   height: 80px;
@@ -28,10 +28,12 @@ div {
   margin: 10px;
 } 
 
-/* li {
-  border: 2px solid black;
+li {
+  border: 2px solid gray;
+  background-color: rgb(216, 199, 233);
   padding: 20px;
   margin: 20px;
-  border-radius: 25%;
-} */
+  list-style-type: none;
+  cursor: pointer;
+}
 

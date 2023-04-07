@@ -11,9 +11,9 @@ var questionTag = document.querySelector("#question");
 var answersTag = document.querySelector("#answers");
 var playing = true;
 var currQuestionIdx = 0;
-// var firstNameEl = $('input[name="first-name"]');
+var saveBtn = document.querySelector("#save-button");
 
-// array of question objects
+// Array of question objects
 var questions = [
   {
     question: "Which of the following is not a semantic HTML tag:",
@@ -70,6 +70,7 @@ function startQuiz() {
   displayNextQuestion()
 }
 
+// Create a function that loops through the questions in the array of question objects
 function displayNextQuestion() {
   var currQuestionObj = questions[currQuestionIdx];
   var questionToDisplay = currQuestionObj.question;
@@ -89,16 +90,10 @@ function displayNextQuestion() {
     }
     answersTag.appendChild(liTag);
   }
-  // for the length of the answers array in the current question,
-    // create a button element for each answer and append to the ul
-    // text content is the answer
-
-  // event listener on ul for button clicks
-  // call check answer with the selected answer as the argument
 }
 
-
-
+// Create a function that shows the final score either when the user has
+// answered all questions or when the time runs out, whichever comes first
 function gameOver() {
   questionScrn.classList.add("hide");
   gameoverScrn.classList.remove("hide");
@@ -107,15 +102,12 @@ function gameOver() {
 
 // Listen for click inside the answer ul tag
 answersTag.addEventListener("click", function(event){
-  console.log("click");
   if( event.target.matches("li") ){
     if( event.target.getAttribute("data-correct") === "yes" ){
-      console.log("correct!")
     } else {
       // subtract some time
       secondsLeft--
       timer.textContent = secondsLeft + " seconds left";
-      console.log("WRONG!")
     }
     currQuestionIdx++;
     if( currQuestionIdx < questions.length ) {
@@ -127,5 +119,8 @@ answersTag.addEventListener("click", function(event){
   }
 })
 
-// Listen for button clicks
+// Listen for start button click
 startBtn.addEventListener("click", startQuiz)
+
+// Listen for save button click
+saveBtn.addEventListener("click", )
