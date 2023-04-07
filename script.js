@@ -1,7 +1,7 @@
 // Set the global variables
 var timer = document.querySelector(".time"); // h1 tag
-var secondsLeft = 15;
-var score
+var secondsLeft = 30;
+var score = 0;
 var startBtn = document.querySelector("#start-button");
 var questionScrn = document.querySelector("#question-screen");
 var welcomeScrn = document.querySelector("#welcome-screen");
@@ -13,7 +13,7 @@ var playing = true;
 var currQuestionIdx = 0;
 var saveBtn = document.querySelector("#save-button");
 var storedScore = localStorage.getItem("storedScore");
-var initials =  document.querySelector(".form-input").value;
+var initials =  document.querySelector(".form-input");
 
 // Array of question objects
 var questions = [
@@ -49,7 +49,7 @@ var questions = [
   },
 ]
 
-// Create a timer function
+// Create a countdown timer function
 function setTime() {
   var timerInterval = setInterval(function() {
     if (secondsLeft !== 0 && playing === true) {
@@ -122,22 +122,23 @@ answersTag.addEventListener("click", function(event){
   }
 })
 
-// Add local storage for initials and final score
-
 
 // Listen for start button click
 startBtn.addEventListener("click", startQuiz)
 
-// Listen for save button click
+// Listen for save button click to add local storage for initials and high score
 saveBtn.addEventListener("click", function(event) {
   event.preventDefault();
-  // look in local storage and see if there;s a high score there 
-  // is high score greater than the new one 
+
+  score = secondsLeft
+  console.log(initials.value)
   if(storedScore < score) {
     storedScore = score;
     localStorage.setItem("storedScore", storedScore);
+    localStorage.setItem("initials", initials.value);
   }
   console.log(storedScore)
-  localStorage.setItem("initials", initials);
-  console.log(initials)
+  console.log(initials.value)
+  document.getElementById("high-score").textContent = "High Score: " + storedScore;
+  document.getElementById("hs-initials").textContent = "Initials: " + initials.value;
 })
