@@ -11,6 +11,8 @@ Working with vanilla JS and web APIs is not my idea of fun. My final result is f
 
 ## Production Link
 
+Open [https://annamarlena.github.io/web-apis-code-quiz/](https://annamarlena.github.io/web-apis-code-quiz/) in your browser to take the quiz!
+
 ## Screenshot
 
 ![Screenshot](./assets/screenshot.png)
